@@ -15,16 +15,16 @@ namespace MyGamesApp
             InitializeComponent();
             this.connection = connection;
 
-            // Load the games into the ComboBox
+          
             LoadGames();
         }
 
         private void LoadGames()
         {
-            // Assuming you have a method to retrieve the list of games from the database
+           
             var games = GetGamesFromDatabase();
 
-            // Bind the games to the ComboBox
+           
             gameComboBox.ItemsSource = games;
         }
 
@@ -37,10 +37,10 @@ namespace MyGamesApp
                 string newPublisher = newPublisherTextBox.Text;
                 int newPlayed = newPlayedCheckBox.IsChecked ?? false ? 1 : 0;
 
-                // Call the stored procedure to update the game
+               
                 UpdateGame(gameNameToUpdate, newGameName, newPublisher, newPlayed);
 
-                // Close the window
+               
                 DialogResult = true;
                 Close();
             }
@@ -50,12 +50,12 @@ namespace MyGamesApp
             }
         }
 
-        // Add a method to retrieve the list of games from the database
+
         private List<Game> GetGamesFromDatabase()
         {
             List<Game> games = new List<Game>();
 
-            // Replace this with your database query logic
+         
             using (MySqlConnection conn = new MySqlConnection(connection.ConnectionString))
             {
                 try
@@ -69,7 +69,7 @@ namespace MyGamesApp
                         while (reader.Read())
                         {
                             int gameId = reader.GetInt32("game_id");
-                            int genreId = reader.GetInt32("genre_id"); // Read genre_id
+                            int genreId = reader.GetInt32("genre_id");
                             string gameName = reader.GetString("game_name");
                             string publisher = reader.GetString("publisher");
                             int played = reader.GetInt32("played");
@@ -77,7 +77,7 @@ namespace MyGamesApp
                             games.Add(new Game
                             {
                                 GameId = gameId,
-                                GenreId = genreId, // Set genre_id
+                                GenreId = genreId,
                                 GameName = gameName,
                                 Publisher = publisher,
                                 Played = played
@@ -94,7 +94,7 @@ namespace MyGamesApp
             return games;
         }
 
-        // Add a method to update the game in the database
+       
         private void UpdateGame(string gameNameToUpdate, string newGameName, string newPublisher, int newPlayed)
         {
             using (MySqlConnection conn = new MySqlConnection(connection.ConnectionString))

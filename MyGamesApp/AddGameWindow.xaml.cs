@@ -37,7 +37,7 @@ namespace MyGamesApp
 
             AddNewGameToDatabase(gameName, publisher, played);
 
-            Close(); // Close the Add Game window after saving
+            Close();
         }
 
         private void AddNewGameToDatabase(string gameName, string publisher, int played)

@@ -12,7 +12,7 @@ namespace MyGamesApp
             {
                 return intValue == 1 ? "Yes" : "No";
             }
-            return "No"; // Default value if not an integer
+            return "No";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
