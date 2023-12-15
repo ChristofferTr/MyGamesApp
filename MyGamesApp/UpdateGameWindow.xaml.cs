@@ -61,7 +61,7 @@ namespace MyGamesApp
                 try
                 {
                     conn.Open();
-                    string sqlQuery = "SELECT game_id, genre_id, game_name, publisher, played FROM my_games"; // Include genre_id in the query
+                    string sqlQuery = "SELECT game_id, genre_id, game_name, publisher, played FROM my_games";
                     MySqlCommand command = new MySqlCommand(sqlQuery, conn);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
